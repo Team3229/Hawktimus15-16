@@ -15,15 +15,11 @@ import edu.wpi.first.wpilibj.Timer;
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the manifest file in the resource
  * directory.
- *
- * WARNING: While it may look like a good choice to use for your code if you're inexperienced,
- * don't. Unless you know what you are doing, complex code will be much more difficult under
- * this system. Use IterativeRobot or Command-Based instead if you're new.
  */
 public class Robot extends SampleRobot {
     RobotDrive myRobot;  // class that handles basic drive operations
-    Joystick leftStick;  // set to ID 1 in DriverStation
-    Joystick rightStick; // set to ID 2 in DriverStation
+    Joystick leftStick;
+    Joystick rightStick;
     public Robot() {
         myRobot = new RobotDrive(0, 1, 2, 3);
         myRobot.setExpiration(0.1);
