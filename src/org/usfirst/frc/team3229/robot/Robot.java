@@ -18,11 +18,13 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class Robot extends SampleRobot {
     RobotDrive myRobot;  // class that handles basic drive operations
+    //Use two joysticks for two sticks on controller (one for left tread, one for right)
     Joystick leftStick;
     Joystick rightStick;
     public Robot() {
-        myRobot = new RobotDrive(0, 1, 2, 3);
+        myRobot = new RobotDrive(0, 1, 2, 3); //Four arguments are present because 2 motors per tread (2*2=4)
         myRobot.setExpiration(0.1);
+        //Map sticks
         leftStick = new Joystick(0);
         rightStick = new Joystick(1);
     }
@@ -33,7 +35,7 @@ public class Robot extends SampleRobot {
      */
     public void operatorControl() {
         myRobot.setSafetyEnabled(true);
-        while (isOperatorControl() && isEnabled()) {
+        while (isOperatorControl() && isEnabled()) { //Start loop that will be run while game is active
         	myRobot.tankDrive(leftStick, rightStick);
             Timer.delay(0.005);		// wait for a motor update time
         }
