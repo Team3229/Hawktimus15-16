@@ -13,5 +13,5 @@ Hawktimus Prime's 2015-2016 robot code for FRC
 - [**Tom "The Bomb" Durand**](https://github.com/DurandThomas)
 
 #Systems
-- [**Treads (Drive System)**]
-- [**Hinge Lift (Lift System)**]
+- Treads (Drive System)
+- Hinge Lift (Lift System)
