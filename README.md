@@ -10,7 +10,7 @@ Hawktimus Prime's 2015-2016 robot code for FRC
 -[**Adam Schneider**] (https://github.com/KillAllTheOrcs)		
 -[**Sam "Da Man" Weinberg**] (https://github.com/sam0703)		
 -[**Andy Pratt**] (https://github.com/expertboy00)		
--[**Tom "The Bomb" Durand**](https://github.com/DurandThomas)
+-[**Tom "The Bomb" Durand**](https://github.com/DurandThomas) 
 -[**Jillian Anderson**](https://github.com/galaxygaleas)
  
 #Systems		
