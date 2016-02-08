@@ -11,7 +11,7 @@ Hawktimus Prime's 2015-2016 robot code for FRC
 [**Sam "Da Man" Weinberg**] (https://github.com/sam0703)		
 [**Andy Pratt**] (https://github.com/expertboy00)		
 [**Tom "The Bomb" Durand**](https://github.com/DurandThomas)  
-[**Jillian The Noob Anderson**](https://github.com/galaxygaleas)
+[**Jillian Anderson**](https://github.com/galaxygaleas)
  
 #Systems		
  -- Treads (Drive System)		
