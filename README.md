@@ -14,5 +14,5 @@ Hawktimus Prime's 2015-2016 robot code for FRC
 [**Jillian Anderson**](https://github.com/galaxygaleas)
  
 #Systems		
- -- Treads (Drive System)		
- -- Hinge Lift (Lift System)
+- Treads (Drive System)		
+- Hinge Lift (Lift System)
