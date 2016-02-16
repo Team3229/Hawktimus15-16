@@ -15,28 +15,30 @@ import edu.wpi.first.wpilibj.Timer;
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the manifest file in the resource
  * directory.
+ *
+ * WARNING: While it may look like a good choice to use for your code if you're inexperienced,
+ * don't. Unless you know what you are doing, complex code will be much more difficult under
+ * this system. Use IterativeRobot or Command-Based instead if you're new.
  */
 public class Robot extends SampleRobot {
     RobotDrive myRobot;  // class that handles basic drive operations
-    //Use two joysticks for two sticks on controller (one for left tread, one for right)
-    Joystick ps3;
-
-    double leftX = ps3.getRawAxis(0);
-    double leftY = ps3.getRawAxis(1);
-    double rightX = ps3.getRawAxis(4);
-    double rightY = ps3.getRawAxis(5);
-    
+    Joystick leftStick;  // set to ID 1 in DriverStation
+    Joystick rightStick; // set to ID 2 in DriverStation
     public Robot() {
-        myRobot = new RobotDrive(0, 1, 2, 3); //Four arguments are present because 2 motors per tread (2*2=4)
+        myRobot = new RobotDrive(0, 1);
         myRobot.setExpiration(0.1);
-        //Map sticks
-        ps3 = new Joystick(0);
+        leftStick = new Joystick(0);
+        rightStick = new Joystick(1);
     }
-    //Runs the motors with tank steering.
+
+    
+    /**
+     * Runs the motors with tank steering.
+     */
     public void operatorControl() {
         myRobot.setSafetyEnabled(true);
-        while (isOperatorControl() && isEnabled()) { //Start loop that will be run while game is active
-        	myRobot.tankDrive(ps3,ps3);
+        while (isOperatorControl() && isEnabled()) {
+        	myRobot.tankDrive(leftStick, rightStick);
             Timer.delay(0.005);		// wait for a motor update time
         }
     }
