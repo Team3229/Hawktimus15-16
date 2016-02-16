@@ -25,7 +25,7 @@ public class Robot extends SampleRobot {
     Joystick leftStick;  // set to ID 1 in DriverStation
     Joystick rightStick; // set to ID 2 in DriverStation
     public Robot() {
-        myRobot = new RobotDrive(0, 1);
+        myRobot = new RobotDrive(0, 1, 2, 3);
         myRobot.setExpiration(0.1);
         leftStick = new Joystick(0);
         rightStick = new Joystick(1);
