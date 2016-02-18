@@ -56,12 +56,12 @@ public class Robot extends SampleRobot {
             Timer.delay(0.005);		// wait for a motor update time
             
             //Code for Ramp Extension
-            if(leftStick.getRawButton(2)){rampExtension.set(DoubleSolenoid.Value.kForward);}
-            else if(leftStick.getRawButton(1)){rampExtension.set(DoubleSolenoid.Value.kReverse);}
+            if(leftStick.getRawButton(3)){rampExtension.set(DoubleSolenoid.Value.kForward);}
+            else if(leftStick.getRawButton(2)){rampExtension.set(DoubleSolenoid.Value.kReverse);}
           
             //Code for actuator
-            if(rightStick.getRawButton(0)){actuator.set(DoubleSolenoid.Value.kForward);}
-            else if(leftStick.getRawButton(0)){actuator.set(DoubleSolenoid.Value.kReverse);}
+            if(rightStick.getRawButton(1)){actuator.set(DoubleSolenoid.Value.kForward);}
+            else if(leftStick.getRawButton(1)){actuator.set(DoubleSolenoid.Value.kReverse);}
         }
         
     }
