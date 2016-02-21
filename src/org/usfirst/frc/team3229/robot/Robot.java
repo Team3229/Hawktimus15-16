@@ -23,13 +23,20 @@ public class Robot extends SampleRobot {
     DoubleSolenoid actuator = new DoubleSolenoid(0, 1);
     DoubleSolenoid rampExtension = new DoubleSolenoid(2, 3);
     
+    //Start camera server
     CameraServer server = CameraServer.getInstance();
     
+    //Sets camera at a default position
     double servoYaw = 0.5;
     double servoPitch = 0.5;
     
+    //Create 2 servo motors for 2 directions
     Servo yaw = new Servo(4);
     Servo pitch = new Servo(5);
+    
+    //Speeds for both servo motors when turning
+    double yawSpeed = .005;
+    double pitchSpeed = .005;
     
     //Variables that can be used to get information about the compressor at runtime.
     boolean enabled = compressor.enabled();
@@ -55,40 +62,50 @@ public class Robot extends SampleRobot {
     public void operatorControl() {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
+        	//Create tank drive controlled by two sticks previously declared
         	myRobot.tankDrive(leftStick, rightStick);
             Timer.delay(0.005);		// wait for a motor update time
             
-          //Code for status of buttons used for solenoids
+            
+          //Status of buttons used for solenoids
             boolean LTriggerPressed = leftStick.getRawButton(1);
             boolean RTriggerPressed = rightStick.getRawButton(1);
             boolean LFaceButtonUpPressed = leftStick.getRawButton(3);
             boolean LFaceButtonDownPressed = leftStick.getRawButton(2);
             
-            //Code for Ramp Extension
-            if(LFaceButtonUpPressed == true){rampExtension.set(DoubleSolenoid.Value.kForward);}
-            else if(LFaceButtonDownPressed == true){rampExtension.set(DoubleSolenoid.Value.kReverse);}
+            //Status of buttons for camera servos
+            boolean RFaceButtonUpPressed = rightStick.getRawButton(3);
+            boolean RFaceButtonDownPressed = rightStick.getRawButton(2);
+            boolean RFaceButtonLeftPressed = rightStick.getRawButton(4);
+            boolean RFaceButtonRightPressed = rightStick.getRawButton(5);
+            
+            
+            //*******Start of solenoid code*********
+            //Used to make ramp extension go in and out
+            if(LFaceButtonUpPressed ){rampExtension.set(DoubleSolenoid.Value.kForward);}
+            else if(LFaceButtonDownPressed){rampExtension.set(DoubleSolenoid.Value.kReverse);}
           
-            //Code for actuator
+            //Used to make actuator go up and down
             if(RTriggerPressed == true){actuator.set(DoubleSolenoid.Value.kForward);}
             else if(LTriggerPressed == true){actuator.set(DoubleSolenoid.Value.kReverse);}
+            //**********************************
             
-            //Start of servo code
-            if(rightStick.getRawButton(3) && servoPitch < 1){ //Up
-            		servoPitch+=.005;
-            }
-            else if(rightStick.getRawButton(2) && servoPitch > 0){ //Down
-            		servoPitch-=.005;
-            }
             
-            if(rightStick.getRawButton(5) && servoYaw >0){ //Left
-            	servoYaw-=.005;
-            }
-            else if(rightStick.getRawButton(4) && servoYaw <1){ //Right
-            	servoYaw+=.005;
-            }
+            //*******Start of servo code*******
+            //Adjust pitch up
+            if(RFaceButtonUpPressed && servoPitch < 1){ servoPitch+=pitchSpeed; }
+            //Adjust pitch down
+            else if(RFaceButtonDownPressed && servoPitch > 0){servoPitch-=pitchSpeed;}
             
+            //Rotate clockwise
+            if(RFaceButtonRightPressed && servoYaw >0){servoYaw-=yawSpeed;}
+            //Rotate counterclockwise
+            else if(RFaceButtonLeftPressed && servoYaw <1){ servoYaw+=yawSpeed; }
+            
+            //Set the servo motor to newly calculated location
             yaw.set(servoYaw);
             pitch.set(servoPitch);
+            //*****************************
         }
         
     }
