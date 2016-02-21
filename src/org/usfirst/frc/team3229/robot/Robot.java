@@ -31,8 +31,8 @@ public class Robot extends SampleRobot {
     double servoPitch = 0.5;
     
     //Create 2 servo motors for 2 directions
-    Servo yaw = new Servo(4);
-    Servo pitch = new Servo(5);
+    Servo yaw = new Servo(4);  //Rotation
+    Servo pitch = new Servo(5);  //Up and down
     
     //Speeds for both servo motors when turning
     double yawSpeed = .005;
@@ -68,8 +68,8 @@ public class Robot extends SampleRobot {
             
             
           //Status of buttons used for solenoids
-            boolean LTriggerPressed = leftStick.getRawButton(1);
             boolean RTriggerPressed = rightStick.getRawButton(1);
+            boolean LTriggerPressed = leftStick.getRawButton(1);
             boolean LFaceButtonUpPressed = leftStick.getRawButton(3);
             boolean LFaceButtonDownPressed = leftStick.getRawButton(2);
             
@@ -86,9 +86,9 @@ public class Robot extends SampleRobot {
             else if(LFaceButtonDownPressed){rampExtension.set(DoubleSolenoid.Value.kReverse);}
           
             //Used to make actuator go up and down
-            if(RTriggerPressed == true){actuator.set(DoubleSolenoid.Value.kForward);}
-            else if(LTriggerPressed == true){actuator.set(DoubleSolenoid.Value.kReverse);}
-            //**********************************
+            if(RTriggerPressed){actuator.set(DoubleSolenoid.Value.kForward);}
+            else if(LTriggerPressed){actuator.set(DoubleSolenoid.Value.kReverse);}
+            //**************************************
             
             
             //*******Start of servo code*******
@@ -105,7 +105,7 @@ public class Robot extends SampleRobot {
             //Set the servo motor to newly calculated location
             yaw.set(servoYaw);
             pitch.set(servoPitch);
-            //*****************************
+            //*********************************
         }
         
     }
