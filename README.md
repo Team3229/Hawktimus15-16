@@ -3,7 +3,6 @@ Hawktimus Prime's 2015-2016 robot code for FRC
  
 #Programming Team		
 [**Austin Hyder**] (https://github.com/doctormooch)		
-[**Vinny DeSarno**] (https://github.com/snickerlicker420)		
 [**Daniel "Level 78 Meme Clearance" Cassese**] (https://github.com/DannyCassese)		
 [**Everett Tsosie**] (https://github.com/SgtTacos)		
 [**Logan "DeBoss" Harris**] (https://github.com/logan100444)		
@@ -15,4 +14,6 @@ Hawktimus Prime's 2015-2016 robot code for FRC
  
 #Systems		
 - Treads (Drive System)		
-- Hinge Lift (Lift System)
+- Ramp Lift (Pneumatics)
+- Ramp Extension (Pneumatics) 
+- Servo Mounted Optics (Axis Camera)
