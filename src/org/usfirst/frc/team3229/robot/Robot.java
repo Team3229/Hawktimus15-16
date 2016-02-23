@@ -10,6 +10,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.buttons.Button;
 
+/*
+ * Holly Springs High School Robotics Team
+ * Hawktimus Prime, Team 3229
+ * https://github.com/Team3229/Hawktimus15-16
+ */
 
 public class Robot extends SampleRobot {
     RobotDrive myRobot;  // class that handles basic drive operations
