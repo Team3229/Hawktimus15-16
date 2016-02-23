@@ -86,7 +86,7 @@ public class Robot extends SampleRobot {
             
             
             //*******Start of solenoid code*********
-            //Used to make ramp extension go in and out
+            //Used to make ramp extension extend and retract
             if(LFaceButtonUpPressed ){rampExtension.set(DoubleSolenoid.Value.kForward);}
             else if(LFaceButtonDownPressed){rampExtension.set(DoubleSolenoid.Value.kReverse);}
           
@@ -96,7 +96,10 @@ public class Robot extends SampleRobot {
             //**************************************
             
             
-            //*******Start of servo code*******
+            /*******Start of servo code*******
+            ***NOTE***
+           * Additional checks are put in place in order to avoid sending the servo an improper value (<0 or >1)
+            */
             //Adjust pitch up
             if(RFaceButtonUpPressed && servoPitch < 1){ servoPitch+=pitchSpeed; }
             //Adjust pitch down
