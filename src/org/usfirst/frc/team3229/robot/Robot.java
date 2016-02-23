@@ -31,13 +31,13 @@ public class Robot extends SampleRobot {
     //Start camera server
     CameraServer server = CameraServer.getInstance();
     
-    //Sets camera at a default position
-    double servoYaw = 0.5;
+    //Sets camera at a default position (forward)
+    double servoYaw = 0.0;
     double servoPitch = 0.5;
     
     //Create 2 servo motors for 2 directions
-    Servo yaw = new Servo(4);  //Rotation
-    Servo pitch = new Servo(5);  //Up and down
+    Servo yaw = new Servo(5);  //Rotation
+    Servo pitch = new Servo(4);  //Up and down
     
     //Speeds for both servo motors when turning
     double yawSpeed = .005;
@@ -50,7 +50,7 @@ public class Robot extends SampleRobot {
     
     public Robot() {
     	//Create a Drive System with four motors
-        myRobot = new RobotDrive(0, 1, 2, 3);
+        myRobot = new RobotDrive(2, 3, 0, 1); //weird order due to treads spinning backwards
         myRobot.setExpiration(0.1);
         //Two Logitech sticks are used, so two joystick objects are created.
         leftStick = new Joystick(0);
