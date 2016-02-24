@@ -62,6 +62,14 @@ public class Robot extends SampleRobot {
         //Make sure name of camera found in setup is the name that appears here
         server.startAutomaticCapture("axis-camera");
     }
+    
+    //Start of autonomous
+    public void autonomousInit(){
+    	for(int x = 0; x < 750; x++){
+    		myRobot.drive(.5, 0);
+    	}
+    	myRobot.drive(0, 0);
+    }
   
     //Run motors with tank steering
     public void operatorControl() {
