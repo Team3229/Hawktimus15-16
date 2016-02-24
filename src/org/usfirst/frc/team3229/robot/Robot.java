@@ -77,6 +77,7 @@ public class Robot extends SampleRobot {
             boolean LTriggerPressed = leftStick.getRawButton(1);
             boolean LFaceButtonUpPressed = leftStick.getRawButton(3);
             boolean LFaceButtonDownPressed = leftStick.getRawButton(2);
+            boolean LFaceButtonLeftPressed = leftStick.getRawButton(4);
             
             //Status of buttons for camera servos
             boolean RFaceButtonUpPressed = rightStick.getRawButton(3);
@@ -109,6 +110,9 @@ public class Robot extends SampleRobot {
             if(RFaceButtonRightPressed && servoYaw >0){servoYaw-=yawSpeed;}
             //Rotate counterclockwise
             else if(RFaceButtonLeftPressed && servoYaw <1){ servoYaw+=yawSpeed; }
+            
+            //Reset Camera to forward
+            if(LFaceButtonLeftPressed){servoYaw=0; servoPitch=.5;}
             
             //Set the servo motor to newly calculated location
             yaw.set(servoYaw);
