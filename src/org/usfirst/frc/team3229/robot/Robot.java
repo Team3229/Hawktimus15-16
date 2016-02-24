@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3229.robot;
+ package org.usfirst.frc.team3229.robot;
 
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.Servo;
@@ -76,7 +76,7 @@ public class Robot extends SampleRobot {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
         	//Create tank drive controlled by two sticks previously declared
-        	myRobot.tankDrive(leftStick, rightStick);
+        	myRobot.tankDrive(rightStick, leftStick);
             Timer.delay(0.005);		// wait for a motor update time
             
             
