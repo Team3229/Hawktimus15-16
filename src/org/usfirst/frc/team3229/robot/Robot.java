@@ -21,6 +21,12 @@ public class Robot extends SampleRobot {
     Joystick leftStick;  // set to ID 1 in DriverStation
     Joystick rightStick; // set to ID 2 in DriverStation
     
+    //Declare Talons
+    byte talonFL = 1; //Talon, Front Left
+    byte talonBL = 0;
+    byte talonFR = 3;
+    byte talonBR = 2;
+    
     //Create a compressor object named compressor.
     Compressor compressor = new Compressor(0);
      
@@ -50,7 +56,7 @@ public class Robot extends SampleRobot {
     
     public Robot() {
     	//Create a Drive System with four motors
-        myRobot = new RobotDrive(2, 3, 0, 1); //weird order due to treads spinning backwards
+        myRobot = new RobotDrive(talonFL, talonBL, talonFR, talonBR); //weird order due to treads spinning backwards
         myRobot.setExpiration(0.1);
         //Two Logitech sticks are used, so two joystick objects are created.
         leftStick = new Joystick(0);
@@ -76,7 +82,7 @@ public class Robot extends SampleRobot {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
         	//Create tank drive controlled by two sticks previously declared
-        	myRobot.tankDrive(rightStick, leftStick);
+        	myRobot.tankDrive(leftStick, rightStick);
             Timer.delay(0.005);		// wait for a motor update time
             
             
