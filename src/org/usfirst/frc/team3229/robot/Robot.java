@@ -92,19 +92,19 @@ public class Robot extends SampleRobot {
         	 Timer.delay(0.005);		// wait for a motor update time
             
             
-          //Status of buttons used for solenoids
-            boolean RTriggerPressed = rightStick.getRawButton(1);
-            boolean LTriggerPressed = leftStick.getRawButton(1);
-            boolean LFaceButtonUpPressed = leftStick.getRawButton(3);
-            boolean LFaceButtonDownPressed = leftStick.getRawButton(2);
-            boolean LFaceButtonLeftPressed = leftStick.getRawButton(4);
+          //Buttons for left stick
+            boolean LTriggerPressed = leftStick.getRawButton(1);  //Actuator down
+            boolean LFaceButtonUpPressed = leftStick.getRawButton(3);  // Solenoid in
+            boolean LFaceButtonDownPressed = leftStick.getRawButton(2);  //Solenoid out
+            boolean LFaceButtonLeftPressed = leftStick.getRawButton(4);  // Camera Reset
             boolean LFaceButtonRightPressed = leftStick.getRawButton(5); //Turbo button
             
-            //Status of buttons for camera servos
-            boolean RFaceButtonUpPressed = rightStick.getRawButton(3);
-            boolean RFaceButtonDownPressed = rightStick.getRawButton(2);
-            boolean RFaceButtonLeftPressed = rightStick.getRawButton(4);
-            boolean RFaceButtonRightPressed = rightStick.getRawButton(5);
+            //Buttons for right stick
+            boolean RTriggerPressed = rightStick.getRawButton(1);  //Actuator up
+            boolean RFaceButtonUpPressed = rightStick.getRawButton(3);  //Adjust camera up
+            boolean RFaceButtonDownPressed = rightStick.getRawButton(2);  //Adjust camera down
+            boolean RFaceButtonLeftPressed = rightStick.getRawButton(4);  //Rotate camera counterclockwise
+            boolean RFaceButtonRightPressed = rightStick.getRawButton(5);  //Rotate camera clockwise
             
             
             //*******Start of solenoid code*********
