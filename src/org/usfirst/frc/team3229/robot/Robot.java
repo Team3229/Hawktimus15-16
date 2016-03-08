@@ -83,6 +83,8 @@ public class Robot extends SampleRobot {
         while (isOperatorControl() && isEnabled()) {
         	//Create tank drive controlled by two sticks previously declared
         	myRobot.tankDrive(leftStick, rightStick);
+        	//Set sensitivity (default of .5)
+        	myRobot.setSensitivity(0.5); 
             Timer.delay(0.005);		// wait for a motor update time
             
             
