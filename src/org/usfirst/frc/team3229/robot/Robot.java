@@ -136,13 +136,14 @@ public class Robot extends SampleRobot {
             if(LFaceButtonLeftPressed){servoYaw=0; servoPitch=.5;}
             
             //Turbo Boost when button is pressed
-            if(LFaceButtonRightPressed){myRobot.setSensitivity(.5);}
+            if(LFaceButtonRightPressed){sensitivity=.5;}
             //Reset sensitivity to default when button is not pressed
-            else{myRobot.setSensitivity(sensitivity);}
+            else{sensitivity=.25;}
             
             //Set the servo motor to newly calculated location
             yaw.set(servoYaw);
             pitch.set(servoPitch);
+            myRobot.setSensitivity(sensitivity);
             //*********************************
         }
         
