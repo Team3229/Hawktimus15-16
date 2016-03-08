@@ -27,6 +27,9 @@ public class Robot extends SampleRobot {
     byte talonFR = 3;
     byte talonBR = 2;
     
+    //Sensitivity value for drive system
+    double sensitivity = .25;
+    
     //Create a compressor object named compressor.
     Compressor compressor = new Compressor(0);
      
@@ -67,6 +70,9 @@ public class Robot extends SampleRobot {
         server.setQuality(75);
         //Make sure name of camera found in setup is the name that appears here
         server.startAutomaticCapture("axis-camera");
+        
+        //Set sensitivity (default of .5)
+        myRobot.setSensitivity(sensitivity);
     }
     
     //Start of autonomous
@@ -83,9 +89,7 @@ public class Robot extends SampleRobot {
         while (isOperatorControl() && isEnabled()) {
         	//Create tank drive controlled by two sticks previously declared
         	myRobot.tankDrive(leftStick, rightStick);
-        	//Set sensitivity (default of .5)
-        	myRobot.setSensitivity(0.5); 
-            Timer.delay(0.005);		// wait for a motor update time
+        	 Timer.delay(0.005);		// wait for a motor update time
             
             
           //Status of buttons used for solenoids
@@ -94,6 +98,7 @@ public class Robot extends SampleRobot {
             boolean LFaceButtonUpPressed = leftStick.getRawButton(3);
             boolean LFaceButtonDownPressed = leftStick.getRawButton(2);
             boolean LFaceButtonLeftPressed = leftStick.getRawButton(4);
+            boolean LFaceButtonRightPressed = leftStick.getRawButton(5); //Turbo button
             
             //Status of buttons for camera servos
             boolean RFaceButtonUpPressed = rightStick.getRawButton(3);
@@ -129,6 +134,11 @@ public class Robot extends SampleRobot {
             
             //Reset Camera to forward
             if(LFaceButtonLeftPressed){servoYaw=0; servoPitch=.5;}
+            
+            //Turbo Boost when button is pressed
+            if(LFaceButtonRightPressed){myRobot.setSensitivity(.5);}
+            //Reset sensitivity to default when button is not pressed
+            else{myRobot.setSensitivity(sensitivity);}
             
             //Set the servo motor to newly calculated location
             yaw.set(servoYaw);
