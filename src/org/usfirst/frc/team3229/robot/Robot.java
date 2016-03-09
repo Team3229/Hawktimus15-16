@@ -59,7 +59,7 @@ public class Robot extends SampleRobot {
     
     public Robot() {
     	//Create a Drive System with four motors
-        myRobot = new RobotDrive(talonFL, talonBL, talonFR, talonBR); //weird order due to treads spinning backwards
+        myRobot = new RobotDrive(talonBR, talonFR, talonBL, talonFL); //weird order due to treads spinning backwards
         myRobot.setExpiration(0.1);
         //Two Logitech sticks are used, so two joystick objects are created.
         leftStick = new Joystick(0);
@@ -88,7 +88,7 @@ public class Robot extends SampleRobot {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
         	//Create tank drive controlled by two sticks previously declared
-        	myRobot.tankDrive(leftStick, rightStick);
+        	myRobot.tankDrive(rightStick, leftStick);
         	 Timer.delay(0.005);		// wait for a motor update time
             
             
