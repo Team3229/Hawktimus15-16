@@ -79,6 +79,7 @@ public class Robot extends SampleRobot {
     public void autonomous(){
     	for(int x = 0; x < 750; x++){
     		myRobot.drive(.3, 0);  //Drive robot at a speed of .3 
+    		Timer.delay(0.005);
     	}
     	myRobot.drive(0, 0);  //Stop robot
     }
