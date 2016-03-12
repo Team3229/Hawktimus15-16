@@ -76,7 +76,7 @@ public class Robot extends SampleRobot {
     }
     
     //Start of autonomous
-    public void autonomousInit(){
+    public void autonomous(){
     	for(int x = 0; x < 750; x++){
     		myRobot.drive(.3, 0);  //Drive robot at a speed of .3 
     	}
