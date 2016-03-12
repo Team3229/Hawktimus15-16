@@ -78,9 +78,9 @@ public class Robot extends SampleRobot {
     //Start of autonomous
     public void autonomousInit(){
     	for(int x = 0; x < 750; x++){
-    		myRobot.drive(.5, 0);
+    		myRobot.drive(.3, 0);  //Drive robot at a speed of .3 
     	}
-    	myRobot.drive(0, 0);
+    	myRobot.drive(0, 0);  //Stop robot
     }
   
     //Run motors with tank steering
