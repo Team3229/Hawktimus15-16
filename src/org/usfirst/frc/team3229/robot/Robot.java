@@ -76,13 +76,13 @@ public class Robot extends SampleRobot {
     }
     
     //Start of autonomous
+    int loopControl = 0;
     public void autonomousPeriodic(){
     	System.out.println("Running Autonomous");
-    	for(int x = 0; x < 750; x++){
+    	if(loopControl < 300){
     		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
     		Timer.delay(0.005);
-    	}
-    	myRobot.drive(0, 0);  //Stop robot
+    	}else{myRobot.drive(0, 0);}  //Stop robot
     }
   
     //Run motors with tank steering
