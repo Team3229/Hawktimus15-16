@@ -77,6 +77,7 @@ public class Robot extends SampleRobot {
     
     //Start of autonomous
     public void autonomousPeriodic(){
+    	System.out.println("Running Autonomous");
     	for(int x = 0; x < 750; x++){
     		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
     		Timer.delay(0.005);
