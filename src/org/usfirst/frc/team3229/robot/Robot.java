@@ -97,7 +97,7 @@ public class Robot extends SampleRobot {
             boolean LFaceButtonUpPressed = leftStick.getRawButton(3);  // Solenoid in
             boolean LFaceButtonDownPressed = leftStick.getRawButton(2);  //Solenoid out
             boolean LFaceButtonLeftPressed = leftStick.getRawButton(4);  // Camera Reset
-            boolean LFaceButtonRightPressed = leftStick.getRawButton(5); //Turbo button
+            boolean LBaseButton10Pressed = leftStick.getRawButton(10); //Turbo button
             
             //Buttons for right stick
             boolean RTriggerPressed = rightStick.getRawButton(1);  //Actuator up
@@ -136,7 +136,7 @@ public class Robot extends SampleRobot {
             if(LFaceButtonLeftPressed){servoYaw=0; servoPitch=.5;}
             
             //Turbo Boost when button is pressed
-            if(LFaceButtonRightPressed){sensitivity=.5;}
+            if(LBaseButton10Pressed){sensitivity=.5;}
             //Reset sensitivity to default when button is not pressed
             else{sensitivity=.25;}
             
