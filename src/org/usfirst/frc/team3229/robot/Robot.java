@@ -155,10 +155,10 @@ public class Robot extends SampleRobot {
             else if(RFaceButtonLeftPressed && servoYaw <1){ servoYaw+=yawSpeed; }
             
             //Reset Camera to forward
-            if(LFaceButtonLeftPressed){servoYaw=0; servoPitch=.5;}
+            if(LBaseButton10Pressed){servoYaw=0; servoPitch=.5;}
             
             //Turbo Boost when button is pressed
-            if(LBaseButton10Pressed){sensitivity=.5;}
+            if(LFaceButtonLeftPressed){sensitivity=.5;}
             //Reset sensitivity to default when button is not pressed
             else{sensitivity=.25;}
             
