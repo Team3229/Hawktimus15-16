@@ -75,15 +75,19 @@ public class Robot extends SampleRobot {
         myRobot.setSensitivity(sensitivity);
     }
     
-    //Start of autonomous
+    //***********START OF AUTONOMOUS*************
     int loopControl = 0;
     
+    //Code to intialize robot
     public void autonomousInit(){
     	System.out.println("Starting Autonomous");
     	loopControl = 0;
     	myRobot.setSafetyEnabled(false);
     }
-    
+    /*AUTONOMOUS PERIODIC
+     * changes made in this block are not reflected when the robot is run, however when this block is deleted
+     * autonomous no longer works properly, thus it has been left in.
+     */
     public void autonomousPeriodic(){
     	System.out.println("Running Autonomous");
     	myRobot.setSafetyEnabled(false);
@@ -96,15 +100,16 @@ public class Robot extends SampleRobot {
     public void autonomous(){
     	loopControl = 0;
     	while(loopControl < 1200){
-    	myRobot.setSafetyEnabled(false);
+    	myRobot.setSafetyEnabled(false); //Disable safety for autonomous
 		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
 		loopControl++;
 		Timer.delay(.005);
     	}
-    	myRobot.setSafetyEnabled(true);
+    	myRobot.setSafetyEnabled(true);  //Enable safety in preparation for teleop
     	myRobot.drive(0, 0);  //Stop robot
     }
-  
+  //*************END AUTONOMOUS*****************
+    
     //Run motors with tank steering
     public void operatorControl() {
         myRobot.setSafetyEnabled(true);
