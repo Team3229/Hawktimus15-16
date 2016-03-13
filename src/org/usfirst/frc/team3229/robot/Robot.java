@@ -81,14 +81,27 @@ public class Robot extends SampleRobot {
     public void autonomousInit(){
     	System.out.println("Starting Autonomous");
     	loopControl = 0;
+    	myRobot.setSafetyEnabled(false);
     }
+    
     public void autonomousPeriodic(){
     	System.out.println("Running Autonomous");
-    	if(loopControl < 300){
+    	myRobot.setSafetyEnabled(false);
+    	while(loopControl < 300){
     		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
-    		Timer.delay(0.005);
     		loopControl++;
-    	}else{myRobot.drive(0, 0);}  //Stop robot
+    	}
+    }
+   
+    public void autonomous(){
+    	while(loopControl < 1200){
+    	myRobot.setSafetyEnabled(false);
+		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
+		loopControl++;
+		Timer.delay(.005);
+    	}
+    	myRobot.setSafetyEnabled(true);
+    	myRobot.drive(0, 0);  //Stop robot
     }
   
     //Run motors with tank steering
