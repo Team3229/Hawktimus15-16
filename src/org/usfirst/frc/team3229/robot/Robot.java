@@ -94,6 +94,7 @@ public class Robot extends SampleRobot {
     }
    
     public void autonomous(){
+    	loopControl = 0;
     	while(loopControl < 1200){
     	myRobot.setSafetyEnabled(false);
 		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
