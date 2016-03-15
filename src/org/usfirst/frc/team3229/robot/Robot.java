@@ -92,7 +92,7 @@ public class Robot extends SampleRobot {
     	System.out.println("Running Autonomous");
     	myRobot.setSafetyEnabled(false);
     	while(loopControl < 300){
-    		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
+    		myRobot.drive(.8, 0);  //drive robot with a .4 ratio
     		loopControl++;
     	}
     }
@@ -101,7 +101,7 @@ public class Robot extends SampleRobot {
     	loopControl = 0;
     	while(loopControl < 1200){
     	myRobot.setSafetyEnabled(false); //Disable safety for autonomous
-		myRobot.drive(.4, 0);  //drive robot with a .4 ratio
+		myRobot.drive(.8, 0);  //drive robot with a .4 ratio
 		loopControl++;
 		Timer.delay(.005);
     	}
