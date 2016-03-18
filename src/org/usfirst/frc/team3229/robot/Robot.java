@@ -23,9 +23,9 @@ public class Robot extends SampleRobot {
     
     //Declare Talons
     byte talonFL = 1; //Talon, Front Left
-    byte talonBL = 0;
-    byte talonFR = 3;
-    byte talonBR = 2;
+    byte talonBL = 0;  //Talon, Back Left
+    byte talonFR = 3;  //Talon, Front Right
+    byte talonBR = 2;  //Talon, Back Right
     
     //Sensitivity value for drive system
     double sensitivity = .25;
@@ -76,11 +76,13 @@ public class Robot extends SampleRobot {
     }
     
     //***********START OF AUTONOMOUS*************
+    //Variable used to keep track of how many times autonomous loop has executed.
     int loopControl = 0;
     
-    //Code to intialize robot
+    //Code to initialize robot
     public void autonomousInit(){
     	System.out.println("Starting Autonomous");
+    	//Ensures loop will run from start (0)
     	loopControl = 0;
     	myRobot.setSafetyEnabled(false);
     }
@@ -98,6 +100,7 @@ public class Robot extends SampleRobot {
     }
    
     public void autonomous(){
+    	//Reset loop control to 0 to enusre a full run
     	loopControl = 0;
     	while(loopControl < 1200){
     	myRobot.setSafetyEnabled(false); //Disable safety for autonomous
@@ -170,6 +173,7 @@ public class Robot extends SampleRobot {
             //Set the servo motor to newly calculated location
             yaw.set(servoYaw);
             pitch.set(servoPitch);
+            //Update robot to reflect any sensitivity changes.
             myRobot.setSensitivity(sensitivity);
             //*********************************
         }
