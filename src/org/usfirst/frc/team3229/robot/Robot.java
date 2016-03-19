@@ -102,7 +102,7 @@ public class Robot extends SampleRobot {
     public void autonomous(){
     	//Reset loop control to 0 to ensure a full run
     	loopControl = 0;
-    	while(loopControl < 1200){
+    	while(loopControl < 800){
     	myRobot.setSafetyEnabled(false); //Disable safety for autonomous
 		myRobot.drive(-.8, 0);  //drive robot at a negative magnituted to drive "forward"
 		loopControl++;
