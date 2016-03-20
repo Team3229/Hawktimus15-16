@@ -111,14 +111,21 @@ public class Robot extends SampleRobot {
     	//Reset loop control to 0 to ensure a full run
     	loopControl = 0;
     	//Drive robot under the lowbar
-    	while(loopControl <= 600){
+    	while(loopControl <= 500){
     	myRobot.setSafetyEnabled(false);  //Disable safety for autonomous
 		myRobot.drive(-.8, 0);  //drive robot at a negative magnitude to drive "forward"
 		loopControl++;
 		Timer.delay(.005);
     	}
+    	//Stop robot temporarily 
+    	while(loopControl >500 && loopControl <=700){
+    		myRobot.setSafetyEnabled(false);
+    		myRobot.drive(0, 0);  //Stop robot
+    		loopControl++;
+    		Timer.delay(.005);
+    	}
     	//Drive robot back under the lowbar
-    	while(loopControl >600 && loopControl <=1200){
+    	while(loopControl >700 && loopControl <=1200){
     		myRobot.setSafetyEnabled(false);  //Disable safety for autonomous
     		myRobot.drive(.8,0);  //Drive robot backwards
     		loopControl++;
