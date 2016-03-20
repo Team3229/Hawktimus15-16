@@ -73,6 +73,10 @@ public class Robot extends SampleRobot {
         
         //Set sensitivity (default of .5)
         myRobot.setSensitivity(sensitivity);
+        
+        //Set camera forward
+        yaw.set(servoYaw);
+        pitch.set(servoPitch);
     }
     
     //***********START OF AUTONOMOUS*************
@@ -85,6 +89,10 @@ public class Robot extends SampleRobot {
     	//Ensures loop will run from start (0)
     	loopControl = 0;
     	myRobot.setSafetyEnabled(false);
+    	
+    	//Set camera to face forward
+    	yaw.set(servoYaw);
+        pitch.set(servoPitch);
     }
     /*AUTONOMOUS PERIODIC
      * changes made in this block are not reflected when the robot is run, however when this block is deleted
